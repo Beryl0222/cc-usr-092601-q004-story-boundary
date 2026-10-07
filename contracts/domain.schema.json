@@ -20,9 +20,22 @@
       "type": "string",
       "enum": [
         "SOURCE_REGISTERED",
+        "SOURCE_WITHDRAWN",
+        "GRANT_RECORDED",
         "CLAIM_PROPOSED",
+        "CLAIM_ATTESTED",
+        "CLAIM_QUESTIONED",
+        "CLAIM_RESOLVED",
+        "CONTEXT_ATTACHED",
+        "ANALOGY_NOTED",
+        "TRANSLATION_PROPOSED",
         "TRANSLATION_REVIEWED",
+        "SEGMENT_PLANNED",
+        "SEGMENT_FROZEN",
         "RELEASE_POSTED",
+        "RELEASE_QUARANTINED",
+        "RELEASE_ARCHIVED",
+        "CORRECTION_ISSUED",
         "CORRECTION_PROPAGATED"
       ]
     },
@@ -30,9 +43,14 @@
       "type": "string",
       "enum": [
         "source_record",
+        "person_grant",
         "fact_claim",
+        "cultural_context",
+        "analogy_note",
+        "translation_candidate",
         "video_segment",
-        "channel_release"
+        "channel_release",
+        "correction_notice"
       ]
     },
     "aggregate_id": {
@@ -52,18 +70,155 @@
     }
   },
   "payload_required_by_event": {
+    "SOURCE_REGISTERED": [
+      "source_kind",
+      "source_version"
+    ],
+    "SOURCE_WITHDRAWN": [
+      "reason"
+    ],
+    "GRANT_RECORDED": [
+      "person_id",
+      "grant_scope"
+    ],
     "CLAIM_PROPOSED": [
       "claim_kind",
       "source_ref"
     ],
+    "CLAIM_ATTESTED": [
+      "person_id",
+      "attestation_scope"
+    ],
+    "CLAIM_QUESTIONED": [
+      "dispute_id",
+      "question"
+    ],
+    "CLAIM_RESOLVED": [
+      "dispute_id",
+      "resolution"
+    ],
+    "CONTEXT_ATTACHED": [
+      "subject_ref",
+      "context_text"
+    ],
+    "ANALOGY_NOTED": [
+      "claim_ref",
+      "analogy_text"
+    ],
+    "TRANSLATION_PROPOSED": [
+      "candidate_id",
+      "subject_ref",
+      "language",
+      "candidate"
+    ],
+    "TRANSLATION_REVIEWED": [
+      "candidate_id",
+      "subject_ref",
+      "language",
+      "reviewer_role",
+      "reviewer_id"
+    ],
+    "SEGMENT_PLANNED": [
+      "segment_no",
+      "content_hash",
+      "subtitle_hash"
+    ],
+    "SEGMENT_FROZEN": [
+      "segment_no",
+      "content_hash",
+      "subtitle_hash",
+      "languages",
+      "claim_refs",
+      "required_qualifiers",
+      "translations",
+      "signatures"
+    ],
     "RELEASE_POSTED": [
       "channel_id",
-      "content_hash"
+      "channel_language",
+      "content_hash",
+      "subtitle_hash",
+      "segment_ref",
+      "receipt_id"
+    ],
+    "RELEASE_QUARANTINED": [
+      "channel_id",
+      "segment_no",
+      "content_hash",
+      "subtitle_hash",
+      "reason"
+    ],
+    "RELEASE_ARCHIVED": [
+      "receipt_id"
+    ],
+    "CORRECTION_ISSUED": [
+      "supersedes",
+      "scope",
+      "reason"
     ],
     "CORRECTION_PROPAGATED": [
-      "supersedes",
-      "scope"
+      "correction_id",
+      "channel_id",
+      "receipt_id",
+      "checkpoint",
+      "status"
     ]
+  },
+  "payload_enums_by_event": {
+    "SOURCE_REGISTERED": {
+      "source_kind": [
+        "testimony",
+        "public_material",
+        "author_experience",
+        "analogy"
+      ]
+    },
+    "GRANT_RECORDED": {
+      "grant_scope": [
+        "own_experience_attestation",
+        "material_use"
+      ]
+    },
+    "CLAIM_PROPOSED": {
+      "claim_kind": [
+        "confirmed_fact",
+        "personal_experience",
+        "inference",
+        "analogy"
+      ]
+    },
+    "CLAIM_ATTESTED": {
+      "attestation_scope": [
+        "own_experience",
+        "historical_conclusion"
+      ]
+    },
+    "CLAIM_RESOLVED": {
+      "resolution": [
+        "confirmed",
+        "withdrawn",
+        "reworded"
+      ]
+    },
+    "TRANSLATION_REVIEWED": {
+      "reviewer_role": [
+        "fact_editor",
+        "cross_language_reviewer"
+      ]
+    },
+    "CORRECTION_ISSUED": {
+      "scope": [
+        "unpublished",
+        "online",
+        "archived"
+      ]
+    },
+    "CORRECTION_PROPAGATED": {
+      "status": [
+        "propagated",
+        "failed"
+      ]
+    }
   },
   "additionalProperties": false
 }

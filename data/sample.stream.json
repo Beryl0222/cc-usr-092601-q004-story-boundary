@@ -1,0 +1,436 @@
+[
+  {
+    "event_id": "evt-001",
+    "event_type": "SOURCE_REGISTERED",
+    "aggregate_type": "source_record",
+    "aggregate_id": "src-public-embroidery-01",
+    "occurred_at": "2026-09-20T09:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "source_kind": "public_material",
+      "source_version": 3,
+      "title": "地方志·刺绣节俗条目",
+      "url": "https://example.org/local-gazetteer/embroidery"
+    }
+  },
+  {
+    "event_id": "evt-002",
+    "event_type": "SOURCE_REGISTERED",
+    "aggregate_type": "source_record",
+    "aggregate_id": "src-zhang-testimony-01",
+    "occurred_at": "2026-09-20T10:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "source_kind": "testimony",
+      "source_version": 1,
+      "person_id": "p-zhang",
+      "person_name": "张氏（绣坊传承人）"
+    }
+  },
+  {
+    "event_id": "evt-003",
+    "event_type": "SOURCE_REGISTERED",
+    "aggregate_type": "source_record",
+    "aggregate_id": "src-analogy-runway-01",
+    "occurred_at": "2026-09-20T10:30:00+08:00",
+    "version": 1,
+    "payload": {
+      "source_kind": "analogy",
+      "source_version": 1,
+      "note": "为便于海外观众理解而作的时装周类比，仅作解释"
+    }
+  },
+  {
+    "event_id": "evt-004",
+    "event_type": "GRANT_RECORDED",
+    "aggregate_type": "person_grant",
+    "aggregate_id": "grant:p-zhang:own_experience_attestation",
+    "occurred_at": "2026-09-20T11:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "person_id": "p-zhang",
+      "grant_scope": "own_experience_attestation",
+      "private_contact": "zhang@example.invalid"
+    }
+  },
+  {
+    "event_id": "evt-005",
+    "event_type": "GRANT_RECORDED",
+    "aggregate_type": "person_grant",
+    "aggregate_id": "grant:p-zhang:material_use",
+    "occurred_at": "2026-09-20T11:05:00+08:00",
+    "version": 1,
+    "payload": {
+      "person_id": "p-zhang",
+      "grant_scope": "material_use",
+      "material_ids": ["m-clip-zhang-01"]
+    }
+  },
+  {
+    "event_id": "evt-006",
+    "event_type": "CLAIM_PROPOSED",
+    "aggregate_type": "fact_claim",
+    "aggregate_id": "claim-embroidery-origin",
+    "occurred_at": "2026-09-21T09:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "claim_kind": "confirmed_fact",
+      "source_ref": "src-public-embroidery-01",
+      "wording": "该镇刺绣节俗在地方志中有明确记载"
+    }
+  },
+  {
+    "event_id": "evt-007",
+    "event_type": "CLAIM_PROPOSED",
+    "aggregate_type": "fact_claim",
+    "aggregate_id": "claim-zhang-memory",
+    "occurred_at": "2026-09-21T09:30:00+08:00",
+    "version": 1,
+    "payload": {
+      "claim_kind": "personal_experience",
+      "source_ref": "src-zhang-testimony-01",
+      "wording": "张氏回忆自己十六岁起在节庆上为绣娘分线"
+    }
+  },
+  {
+    "event_id": "evt-008",
+    "event_type": "CLAIM_ATTESTED",
+    "aggregate_type": "fact_claim",
+    "aggregate_id": "claim-zhang-memory",
+    "occurred_at": "2026-09-21T14:00:00+08:00",
+    "version": 2,
+    "payload": {
+      "person_id": "p-zhang",
+      "attestation_scope": "own_experience"
+    }
+  },
+  {
+    "event_id": "evt-009",
+    "event_type": "CLAIM_QUESTIONED",
+    "aggregate_type": "fact_claim",
+    "aggregate_id": "claim-zhang-memory",
+    "occurred_at": "2026-09-22T10:00:00+08:00",
+    "version": 3,
+    "payload": {
+      "dispute_id": "dispute-001",
+      "question": "口述中“十六岁”是否为约数，需要核对初录稿"
+    }
+  },
+  {
+    "event_id": "evt-010",
+    "event_type": "CLAIM_RESOLVED",
+    "aggregate_type": "fact_claim",
+    "aggregate_id": "claim-zhang-memory",
+    "occurred_at": "2026-09-22T16:00:00+08:00",
+    "version": 4,
+    "payload": {
+      "dispute_id": "dispute-001",
+      "resolution": "reworded"
+    }
+  },
+  {
+    "event_id": "evt-011",
+    "event_type": "CLAIM_PROPOSED",
+    "aggregate_type": "fact_claim",
+    "aggregate_id": "claim-runway-analogy",
+    "occurred_at": "2026-09-21T10:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "claim_kind": "analogy",
+      "source_ref": "src-analogy-runway-01",
+      "wording": "节庆上绣娘列队，可类比时装周走秀，仅为帮助理解"
+    }
+  },
+  {
+    "event_id": "evt-012",
+    "event_type": "CONTEXT_ATTACHED",
+    "aggregate_type": "cultural_context",
+    "aggregate_id": "ctx:claim-embroidery-origin",
+    "occurred_at": "2026-09-21T11:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "subject_ref": "claim-embroidery-origin",
+      "context_text": "地方志版本为1998年整理本；节俗日期在不同抄本间相差两日"
+    }
+  },
+  {
+    "event_id": "evt-013",
+    "event_type": "ANALOGY_NOTED",
+    "aggregate_type": "analogy_note",
+    "aggregate_id": "analogy:claim-runway-analogy",
+    "occurred_at": "2026-09-21T11:30:00+08:00",
+    "version": 1,
+    "payload": {
+      "claim_ref": "claim-runway-analogy",
+      "analogy_text": "时装周类比不含商业演出性质，不可据此描述历史上的节庆组织"
+    }
+  },
+  {
+    "event_id": "evt-014",
+    "event_type": "TRANSLATION_PROPOSED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-embroidery-origin-en",
+    "occurred_at": "2026-09-23T09:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "candidate_id": "tr-embroidery-origin-en",
+      "subject_ref": "claim-embroidery-origin",
+      "language": "en",
+      "candidate": "The town's embroidery festival customs are recorded in the local gazetteer.",
+      "qualifier_wording": {
+        "source_attribution": "according to the local gazetteer"
+      }
+    }
+  },
+  {
+    "event_id": "evt-015",
+    "event_type": "TRANSLATION_REVIEWED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-embroidery-origin-en",
+    "occurred_at": "2026-09-23T10:00:00+08:00",
+    "version": 2,
+    "payload": {
+      "candidate_id": "tr-embroidery-origin-en",
+      "subject_ref": "claim-embroidery-origin",
+      "language": "en",
+      "reviewer_role": "fact_editor",
+      "reviewer_id": "u-fe-01"
+    }
+  },
+  {
+    "event_id": "evt-016",
+    "event_type": "TRANSLATION_REVIEWED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-embroidery-origin-en",
+    "occurred_at": "2026-09-23T11:00:00+08:00",
+    "version": 3,
+    "payload": {
+      "candidate_id": "tr-embroidery-origin-en",
+      "subject_ref": "claim-embroidery-origin",
+      "language": "en",
+      "reviewer_role": "cross_language_reviewer",
+      "reviewer_id": "u-lr-02"
+    }
+  },
+  {
+    "event_id": "evt-017",
+    "event_type": "TRANSLATION_PROPOSED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-zhang-memory-en",
+    "occurred_at": "2026-09-23T09:10:00+08:00",
+    "version": 1,
+    "payload": {
+      "candidate_id": "tr-zhang-memory-en",
+      "subject_ref": "claim-zhang-memory",
+      "language": "en",
+      "candidate": "Zhang recalls handing out thread to embroiderers at the festival from her teens.",
+      "qualifier_wording": {
+        "oral_attestation": "as Zhang herself recalled",
+        "not_historical_conclusion": "this is her personal recollection, not a historical conclusion"
+      }
+    }
+  },
+  {
+    "event_id": "evt-018",
+    "event_type": "TRANSLATION_REVIEWED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-zhang-memory-en",
+    "occurred_at": "2026-09-23T10:10:00+08:00",
+    "version": 2,
+    "payload": {
+      "candidate_id": "tr-zhang-memory-en",
+      "subject_ref": "claim-zhang-memory",
+      "language": "en",
+      "reviewer_role": "fact_editor",
+      "reviewer_id": "u-fe-01"
+    }
+  },
+  {
+    "event_id": "evt-019",
+    "event_type": "TRANSLATION_REVIEWED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-zhang-memory-en",
+    "occurred_at": "2026-09-23T11:10:00+08:00",
+    "version": 3,
+    "payload": {
+      "candidate_id": "tr-zhang-memory-en",
+      "subject_ref": "claim-zhang-memory",
+      "language": "en",
+      "reviewer_role": "cross_language_reviewer",
+      "reviewer_id": "u-lr-02"
+    }
+  },
+  {
+    "event_id": "evt-020",
+    "event_type": "TRANSLATION_PROPOSED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-runway-analogy-en",
+    "occurred_at": "2026-09-23T09:20:00+08:00",
+    "version": 1,
+    "payload": {
+      "candidate_id": "tr-runway-analogy-en",
+      "subject_ref": "claim-runway-analogy",
+      "language": "en",
+      "candidate": "The embroiderers lining up at the festival can be likened to a runway show — an explanatory analogy only.",
+      "qualifier_wording": {
+        "analogy_note": "analogy for explanation only; not a claim about how the historical festival was organized"
+      }
+    }
+  },
+  {
+    "event_id": "evt-021",
+    "event_type": "TRANSLATION_REVIEWED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-runway-analogy-en",
+    "occurred_at": "2026-09-23T10:20:00+08:00",
+    "version": 2,
+    "payload": {
+      "candidate_id": "tr-runway-analogy-en",
+      "subject_ref": "claim-runway-analogy",
+      "language": "en",
+      "reviewer_role": "fact_editor",
+      "reviewer_id": "u-fe-01"
+    }
+  },
+  {
+    "event_id": "evt-022",
+    "event_type": "TRANSLATION_REVIEWED",
+    "aggregate_type": "translation_candidate",
+    "aggregate_id": "tr-runway-analogy-en",
+    "occurred_at": "2026-09-23T11:20:00+08:00",
+    "version": 3,
+    "payload": {
+      "candidate_id": "tr-runway-analogy-en",
+      "subject_ref": "claim-runway-analogy",
+      "language": "en",
+      "reviewer_role": "cross_language_reviewer",
+      "reviewer_id": "u-lr-02"
+    }
+  },
+  {
+    "event_id": "evt-023",
+    "event_type": "SEGMENT_PLANNED",
+    "aggregate_type": "video_segment",
+    "aggregate_id": "segment:SEG-01",
+    "occurred_at": "2026-09-24T09:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "segment_no": "SEG-01",
+      "content_hash": "sha256:content-aaaa",
+      "subtitle_hash": "sha256:sub-aaaa",
+      "claim_refs": [
+        "claim-embroidery-origin",
+        "claim-zhang-memory",
+        "claim-runway-analogy"
+      ],
+      "material_refs": ["m-clip-zhang-01"]
+    }
+  },
+  {
+    "event_id": "evt-024",
+    "event_type": "SEGMENT_FROZEN",
+    "aggregate_type": "video_segment",
+    "aggregate_id": "segment:SEG-01",
+    "occurred_at": "2026-09-24T15:00:00+08:00",
+    "version": 2,
+    "payload": {
+      "segment_no": "SEG-01",
+      "content_hash": "sha256:content-aaaa",
+      "subtitle_hash": "sha256:sub-aaaa",
+      "languages": ["en"],
+      "claim_refs": [
+        "claim-embroidery-origin",
+        "claim-zhang-memory",
+        "claim-runway-analogy"
+      ],
+      "required_qualifiers": [
+        "source_attribution",
+        "oral_attestation",
+        "not_historical_conclusion",
+        "analogy_note"
+      ],
+      "translations": {
+        "en": {
+          "claim-embroidery-origin": "tr-embroidery-origin-en",
+          "claim-zhang-memory": "tr-zhang-memory-en",
+          "claim-runway-analogy": "tr-runway-analogy-en"
+        }
+      },
+      "signatures": {
+        "fact_editor": "u-fe-01",
+        "cross_language_reviewer": "u-lr-02"
+      }
+    }
+  },
+  {
+    "event_id": "evt-025",
+    "event_type": "RELEASE_POSTED",
+    "aggregate_type": "channel_release",
+    "aggregate_id": "rcpt-yt-0001",
+    "occurred_at": "2026-09-25T10:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "channel_id": "ch-youtube",
+      "channel_language": "en",
+      "content_hash": "sha256:content-aaaa",
+      "subtitle_hash": "sha256:sub-aaaa",
+      "segment_ref": "SEG-01",
+      "receipt_id": "rcpt-yt-0001"
+    }
+  },
+  {
+    "event_id": "evt-026",
+    "event_type": "RELEASE_ARCHIVED",
+    "aggregate_type": "channel_release",
+    "aggregate_id": "rcpt-yt-0001",
+    "occurred_at": "2026-09-30T23:00:00+08:00",
+    "version": 2,
+    "payload": {
+      "receipt_id": "rcpt-yt-0001"
+    }
+  },
+  {
+    "event_id": "evt-027",
+    "event_type": "RELEASE_POSTED",
+    "aggregate_type": "channel_release",
+    "aggregate_id": "rcpt-tt-0001",
+    "occurred_at": "2026-09-25T11:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "channel_id": "ch-tiktok",
+      "channel_language": "en",
+      "content_hash": "sha256:content-aaaa",
+      "subtitle_hash": "sha256:sub-aaaa",
+      "segment_ref": "SEG-01",
+      "receipt_id": "rcpt-tt-0001"
+    }
+  },
+  {
+    "event_id": "evt-028",
+    "event_type": "CORRECTION_ISSUED",
+    "aggregate_type": "correction_notice",
+    "aggregate_id": "corr-2026-10-001",
+    "occurred_at": "2026-10-02T09:00:00+08:00",
+    "version": 1,
+    "payload": {
+      "supersedes": "claim-embroidery-origin",
+      "scope": "online",
+      "reason": "地方志1998年整理本的条目被2026年勘误表撤回，起源表述需改为“口述与早期抄本互证”"
+    }
+  },
+  {
+    "event_id": "evt-029",
+    "event_type": "CORRECTION_PROPAGATED",
+    "aggregate_type": "channel_release",
+    "aggregate_id": "rcpt-tt-0001",
+    "occurred_at": "2026-10-02T09:05:00+08:00",
+    "version": 2,
+    "payload": {
+      "correction_id": "corr-2026-10-001",
+      "channel_id": "ch-tiktok",
+      "receipt_id": "rcpt-tt-0001",
+      "checkpoint": "rcpt-tt-0001",
+      "status": "propagated"
+    }
+  }
+]

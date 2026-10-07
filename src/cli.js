@@ -7,11 +7,18 @@ if (!schemaPath || !eventPath) {
   process.exitCode = 2;
 } else {
   const schema = JSON.parse(await readFile(schemaPath, "utf8"));
-  const event = JSON.parse(await readFile(eventPath, "utf8"));
-  const issues = validateEvent(event, schema);
-  if (issues.length === 0) console.log("valid");
-  else {
-    for (const issue of issues) console.log(`${issue.field}	${issue.code}	${issue.message}`);
-    process.exitCode = 1;
-  }
+  const raw = JSON.parse(await readFile(eventPath, "utf8"));
+  const events = Array.isArray(raw) ? raw : [raw];
+  let failed = false;
+  events.forEach((event, index) => {
+    const issues = validateEvent(event, schema);
+    for (const issue of issues) {
+      failed = true;
+      console.log(
+        `[${index}] ${event.event_id ?? "?"}	${issue.field}	${issue.code}	${issue.message}`,
+      );
+    }
+  });
+  if (!failed) console.log("valid");
+  else process.exitCode = 1;
 }
